@@ -20,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,9 +31,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = "/APINoticias/V1/news")
+@CrossOrigin(origins = "http://190.156.39.35:8080")
 public class Controller {
 
     @RequestMapping(path = "/CNN", method = RequestMethod.GET)
+    @CrossOrigin(origins = "http://190.156.39.35:8080")
     public ResponseEntity<?> getNoticiasCNNEs() {
         HttpClient client = HttpClientBuilder.create().build();
         HttpGet request = new HttpGet("https://newsapi.org/v2/top-headlines?sources=cnn-es&apiKey=eb29210794c24d798995ffe5d4a652fb");
