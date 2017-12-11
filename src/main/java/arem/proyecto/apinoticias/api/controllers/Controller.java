@@ -30,12 +30,12 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Juan Pablo Arévalo y Stefany Moron
  */
 @RestController
-@RequestMapping(value = "/APINoticias/V1/news")
-@CrossOrigin(origins = "http://190.156.39.35:8080")
+@RequestMapping(value = "/APINoticias/V1/news")    
+@CrossOrigin()
 public class Controller {
 
     @RequestMapping(path = "/CNN", method = RequestMethod.GET)
-    @CrossOrigin(origins = "http://190.156.39.35:8080")
+    @CrossOrigin()
     public ResponseEntity<?> getNoticiasCNNEs() {
         HttpClient client = HttpClientBuilder.create().build();
         HttpGet request = new HttpGet("https://newsapi.org/v2/top-headlines?sources=cnn-es&apiKey=eb29210794c24d798995ffe5d4a652fb");
